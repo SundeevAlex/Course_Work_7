@@ -16,3 +16,19 @@ class HabitsUpdateApiView(generics.UpdateAPIView):
 class HabitsDestroyApiView(generics.DestroyAPIView):
     queryset = Habits.objects.all()
     serializer_class = HabitsSerializer
+
+
+class HabitsPublicListApiView(generics.ListAPIView):
+    """Вывод списока публичных привычек"""
+
+    serializer_class = HabitsSerializer
+    queryset = Habits.objects.all()
+
+    def get_queryset(self):
+        queryset = Habits.objects.filter(is_published=True)
+        return queryset
+
+
+class HabitsListApiView(generics.ListAPIView):
+    queryset = Habits.objects.all()
+    serializer_class = HabitsSerializer
