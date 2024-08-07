@@ -9,8 +9,10 @@ class NotConnectionHabitAndRewardValidator:
         self.field_2 = field_2
 
     def __call__(self, habits):
-        if habits.get('connection_habit') and habits.get('reward'):
-            raise ValidationError('Связанную привычку и вознаграждение нельзя выбирать одновременно!')
+        if habits.get("connection_habit") and habits.get("reward"):
+            raise ValidationError(
+                "Связанную привычку и вознаграждение нельзя выбирать одновременно!"
+            )
 
 
 class DurationValidator:
@@ -20,8 +22,8 @@ class DurationValidator:
         self.field_1 = field_1
 
     def __call__(self, habits):
-        if habits.get('duration') > 120:
-            raise ValidationError('Это действие можно выполняеть не более двух минут!')
+        if habits.get("duration") and habits.get("duration") > 120:
+            raise ValidationError("Это действие можно выполняеть не более двух минут!")
 
 
 class CombinationValidator:
@@ -32,9 +34,9 @@ class CombinationValidator:
         self.field_2 = field_2
 
     def __call__(self, habits):
-        if habits.get('connection_habit'):
-            if not habits.get('habit_is_pleasant'):
-                raise ValidationError('Приятными могут быть только связанные привычки!')
+        if habits.get("connection_habit"):
+            if not habits.get("habit_is_pleasant"):
+                raise ValidationError("Приятными могут быть только связанные привычки!")
 
 
 class NotRewardOrConnectionHabitValidator:
@@ -46,9 +48,11 @@ class NotRewardOrConnectionHabitValidator:
         self.field_3 = field_3
 
     def __call__(self, habits):
-        if habits.get('habit_is_pleasant'):
-            if habits.get('connection_habit') or habits.get('reward'):
-                raise ValidationError('У приятной привычки не может быть вознаграждения или связанной привычки!')
+        if habits.get("habit_is_pleasant"):
+            if habits.get("connection_habit") or habits.get("reward"):
+                raise ValidationError(
+                    "У приятной привычки не может быть вознаграждения или связанной привычки!"
+                )
 
 
 class FrequencyValidator:
@@ -59,8 +63,8 @@ class FrequencyValidator:
 
     def __call__(self, habits):
         numbers_list = [1, 2, 3, 4, 5, 6, 7]
-        number = habits.get('number_of_executions')
+        number = habits.get("number_of_executions")
         try:
             number in numbers_list
         except ValidationError:
-            print('Нельзя выполнять привычку реже, чем 1 раз в 7 дней!')
+            print("Нельзя выполнять привычку реже, чем 1 раз в 7 дней!")
