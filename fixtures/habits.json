@@ -1,0 +1,50 @@
+[
+  {
+    "model": "habits.habits",
+    "pk": 2,
+    "fields": {
+      "owner": 1,
+      "place": "Home",
+      "time": "13:26:46",
+      "action": "slipping",
+      "habit_is_pleasant": true,
+      "connection_habit": null,
+      "number_of_executions": 7,
+      "reward": "Good",
+      "duration": "00:02:00",
+      "is_published": true
+    }
+  },
+  {
+    "model": "habits.habits",
+    "pk": 3,
+    "fields": {
+      "owner": 1,
+      "place": "Somewere",
+      "time": "14:39:10",
+      "action": "going",
+      "habit_is_pleasant": true,
+      "connection_habit": null,
+      "number_of_executions": 3,
+      "reward": "cap",
+      "duration": "00:02:00",
+      "is_published": true
+    }
+  },
+  {
+    "model": "habits.habits",
+    "pk": 4,
+    "fields": {
+      "owner": 2,
+      "place": "Home",
+      "time": "14:47:13",
+      "action": "Eating",
+      "habit_is_pleasant": true,
+      "connection_habit": 4,
+      "number_of_executions": 7,
+      "reward": "OK",
+      "duration": "00:02:00",
+      "is_published": true
+    }
+  }
+]
