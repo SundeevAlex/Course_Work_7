@@ -138,9 +138,9 @@ CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 CELERY_BEAT_SCHEDULE = {
     "tg_send_message": {
-        "task": "habit.tasks.tg_send_message",
+        "task": "habits.tasks.tg_send_message",
         "schedule": timedelta(
-            minutes=1
+            seconds=10
         ),
     },
 }

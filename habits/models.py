@@ -1,5 +1,5 @@
 from datetime import timedelta
-
+from django import forms
 from django.db import models
 
 from config.settings import AUTH_USER_MODEL
@@ -26,7 +26,7 @@ class Habits(models.Model):
         "self", on_delete=models.CASCADE, **NULLABLE, verbose_name="Связанная привычка"
     )
     number_of_executions = models.IntegerField(
-        default=1, verbose_name="Периодичность (в днях) - от 1 до 7"
+        default=7, verbose_name="Периодичность (в днях) - от 1 до 7"
     )
     reward = models.CharField(max_length=100, verbose_name="Вознаграждение", **NULLABLE)
     duration = models.DurationField(
