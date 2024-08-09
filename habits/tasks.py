@@ -17,7 +17,8 @@ def tg_send_message():
             if tg_chat:
                 executions = habit.number_of_executions
                 if executions != 0:
-                    message = f"Я буду {habit.action} в {habit.time} в {habit.place}."
+                    message = (f"Я буду {habit.action} в {habit.time} в {habit.place}.\n"
+                               f"И за это я получу: {habit.connection_habit.action}!")
                     send_telegram_message(tg_chat, message)
                     executions -= 1
                     habit.save()
