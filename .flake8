@@ -1,0 +1,4 @@
+[flake8]
+exclude = __init__.py, __pycache__, .venv, migrations, .git, users/migrations, habits/migrations
+max-line-length =  120
+ignore = F401
